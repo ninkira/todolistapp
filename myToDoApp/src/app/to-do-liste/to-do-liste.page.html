@@ -1,0 +1,80 @@
+<!-- Page Header -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      To-Do-Liste App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Content -->
+<ion-content [fullscreen]="true">
+  <!-- Content Header -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">To-Do-Liste :)</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+
+    <!-- Ionic-Listen-Element um unsere Aufgaben darzustellen -->
+    <ion-list-header lines="full">
+      <!-- Zurück Button -->
+      <ion-button [routerLink]="['/home']">←</ion-button>
+      <ion-label>Heute</ion-label>
+    </ion-list-header>
+
+    <!-- Liste an Aufgaben; die ersten Elemente sind hier statisch und können auskommentiert werden :)
+      
+      Für weitere Infos: https://www.joshmorony.com/an-introduction-to-lists-in-ionic-2/
+    -->
+    <ion-list>
+      <ion-item>
+        <ion-label>Einkaufen</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-button danger (click)="removeItem(item)">X</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-label>Spazieren</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-button danger (click)="removeItem(item)">X</ion-button>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Yoga</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-button danger (click)="removeItem(item)">X</ion-button>
+      </ion-item>
+
+<!-- Hier unser Listitem, welches mithilfe des Array aus to-do-liste.page.ts automatisch ein Element für jede Aufgabe erstellt -->
+      <ion-item *ngFor="let toDo of toDoItems">
+        <!-- Hier der Verweis auf das Array-Objekt aus unserem TS-Skript-->
+        <ion-label>{{toDo}}</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+        <!-- Lösch Button um das Element aus dem Frontend und dem Array zu entfernen-->
+        <ion-button danger (click)="removeItem(item)">X</ion-button>
+      </ion-item>
+    </ion-list>
+
+
+    <!-- Hier der Abschnitt um neue Aufgaben zu generieren -->
+    <div class="ion-margin">
+      <h4>Neue Aufgabe</h4>
+    </div>
+
+    <ion-item>
+
+      <!-- https://www.joshmorony.com/an-introduction-to-lists-in-ionic-2/ -->
+      <ion-input type="text" [(ngModel)]="aufgabeName" text-right id="input" placeholder="Name der Aufgabe">
+
+      </ion-input>
+      <ion-button (click)="addToDo()" item-right>+</ion-button>
+
+    </ion-item>
+
+
+
+  </div>
+</ion-content>

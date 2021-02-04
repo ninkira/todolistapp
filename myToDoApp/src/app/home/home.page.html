@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      To-Do-Liste App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">To-Do-Liste :)</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+
+
+    <ion-list-header lines="full">
+
+      <ion-label>Übersicht</ion-label>
+      
+    </ion-list-header>
+    <ion-button [routerLink]="['/to-do-liste']" color="primary">Heute</ion-button>
+
+  </div>
+</ion-content>
